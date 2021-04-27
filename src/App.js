@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Page from './components/common/Page';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import Top from './components/articles/Top';
+import Newest from './components/articles/Newest';
+import Ask from './components/articles/Ask';
+import Show from './components/articles/Show';
+import Jobs from './components/articles/Jobs';
+import Lists from './components/common/Lists';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Page>
+          <Switch>
+            <Route exact path="/"><Top /></Route>
+            <Route path="/top"><Top /></Route>
+            <Route path="/new"><Newest /></Route>
+            <Route path="/ask"><Ask /></Route>
+            <Route path="/show"><Show /></Route>
+            <Route path="/jobs"><Jobs /></Route>
+            <Route path="/lists"><Lists /></Route>
+          </Switch>
+        </Page>
+      </BrowserRouter>
   );
 }
 
